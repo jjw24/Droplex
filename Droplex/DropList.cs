@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
@@ -9,14 +10,21 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace Droplex
 {
-    public class Translator
+    public class DropList
     {
         public List<Configuration> Configurations;
-        public Translator()
+
+        public DropList()
         {
             Configurations = TranslateConfigurations();
         }
-        internal List<Configuration> TranslateConfigurations()
+
+        public Configuration Get(App app)
+        {
+            return Configurations.Where(x => x.Id == (int)app).FirstOrDefault();
+        }
+
+        private List<Configuration> TranslateConfigurations()
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(namingConvention: CamelCaseNamingConvention.Instance)
@@ -27,7 +35,7 @@ namespace Droplex
             return deserializer.Deserialize<List<Configuration>>(config);
         }
 
-        internal string LoadConfigurationFile()
+        private string LoadConfigurationFile()
         {
             try
             {

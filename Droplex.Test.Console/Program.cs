@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Droplex.Test.Console
 {
@@ -6,8 +7,7 @@ namespace Droplex.Test.Console
     {
         static void Main(string[] args)
         {
-            var translator = new Translator();
-            Installer.Install(translator.Configuration.Releases[0].Url, translator.Configuration.Releases[0].Args);
+            Droplex.Drop(App.python3_9_1);
         }
     }
 }
