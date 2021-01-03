@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Droplex", "Droplex\Droplex.csproj", "{ACE7D50B-A890-4043-90A1-AFDEF17A8417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Droplex", "Droplex\Droplex.csproj", "{ACE7D50B-A890-4043-90A1-AFDEF17A8417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Droplex.Test.Console", "Droplex.Test.Console\Droplex.Test.Console.csproj", "{36007CB8-3CD2-4EE4-AA0B-58F20CD31C7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ACE7D50B-A890-4043-90A1-AFDEF17A8417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE7D50B-A890-4043-90A1-AFDEF17A8417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACE7D50B-A890-4043-90A1-AFDEF17A8417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36007CB8-3CD2-4EE4-AA0B-58F20CD31C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36007CB8-3CD2-4EE4-AA0B-58F20CD31C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36007CB8-3CD2-4EE4-AA0B-58F20CD31C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36007CB8-3CD2-4EE4-AA0B-58F20CD31C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

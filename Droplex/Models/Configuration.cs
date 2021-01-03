@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Droplex.Models
 {
-    public class Configuration
-    {
+ //   public class Configurations
+ //   {
+	//	public List<Configuration> ConfigurationList { get; set; }
+	//}
+	public class Configuration
+	{
 		public string Name { get; set; }
 		public List<Releases> Releases { get; set; }
 	}

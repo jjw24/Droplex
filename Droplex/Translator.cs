@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -10,15 +11,35 @@ namespace Droplex
 {
     public class Translator
     {
-        public void TranslateConfiguration()
+        public List<Configuration> Configurations;
+        public Translator()
         {
-            var input = new StringReader(Document2);
-
+            Configurations = TranslateConfigurations();
+        }
+        internal List<Configuration> TranslateConfigurations()
+        {
             var deserializer = new DeserializerBuilder()
-            .WithNamingConvention(namingConvention: CamelCaseNamingConvention.Instance)
-            .Build();
+                .WithNamingConvention(namingConvention: CamelCaseNamingConvention.Instance)
+                .Build();
 
-            var config = deserializer.Deserialize<Configuration>(input);
+            var config = LoadConfigurationFile();
+
+            return deserializer.Deserialize<List<Configuration>>(config);
+        }
+
+        internal string LoadConfigurationFile()
+        {
+            try
+            {
+                using var config = new StreamReader("Configuration.yml");
+
+                return config.ReadToEnd();
+            }
+            catch(FileNotFoundException e)
+            {
+                //TODO LOG
+                throw e;
+            }
         }
     }
 }
