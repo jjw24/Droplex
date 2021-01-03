@@ -1,24 +1,31 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Droplex
 {
     public static class Installer
     {
-        public static void Install(string filepath, string args)
+        public static async Task Install(string filepath, string args)
         {
-            var psi = new ProcessStartInfo();
-            psi.UseShellExecute = false;
-            psi.FileName = filepath;
-            psi.Arguments = args;
-            var p = Process.Start(psi);
+            var psi = new ProcessStartInfo
+            {
+                UseShellExecute = false,
+                FileName = filepath,
+                Arguments = args
+            };
 
-            while (!p.HasExited)
-                Thread.Sleep(1000);
+            await Task.Run(() =>
+            {
+                var p = Process.Start(psi);
 
-            if (p.ExitCode != 0)
-                throw new Exception();
+                while (!p.HasExited)
+                    Thread.Sleep(1000);
+
+                if (p.ExitCode != 0)
+                    throw new Exception();
+            }).ConfigureAwait(false);
         }
     }
 }

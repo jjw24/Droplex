@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Droplex
 {
     public static class Droplex
     {
-        public static void Drop(App app)
+        public static async Task Drop(App app)
         {
             var dropList = new DropList();
 
@@ -20,11 +21,13 @@ namespace Droplex
 
             var filePath = Path.Combine(directoryPath, app.ToString());
 
-            Downloader.Get(item.Url, filePath).Wait();
+            Task downloading = Downloader.Get(item.Url, filePath);
 
             var downloadedFilePath = $"{filePath}{Path.GetExtension(item.Url)}";
 
-            Installer.Install(downloadedFilePath, item.Args);
+            await downloading.ConfigureAwait(false);
+
+            await Installer.Install(downloadedFilePath, item.Args).ConfigureAwait(false);
         }
     }
 
