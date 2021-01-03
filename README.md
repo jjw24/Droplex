@@ -1,1 +1,3 @@
-# Droplex
+# Droplex: Installation when the app needs it
+
+Droplex is a library that allows applications to install additional tools, programs and services when needed rather than be bundled into the setup file and installed along with the main app. Its goal is to give application the ability to install non-interactively when dropped in to a vanilla windows environment, without the need to install package managers, and allows the main application to manage the installation instead.
