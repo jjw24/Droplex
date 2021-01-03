@@ -32,8 +32,12 @@ namespace Droplex
             }
 
             var extension = Path.GetExtension(url);
+            var downloadedFile = $"{filePath}{extension}";
 
-            File.Move(filePath,$"{filePath}{extension}");
+            if (File.Exists(downloadedFile))
+                File.Delete(downloadedFile);
+
+            File.Move(filePath, downloadedFile);
         }
     }
 }
