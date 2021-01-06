@@ -12,7 +12,7 @@ namespace Droplex
     {
         private const string UserAgent = @"Mozilla/5.0 (Trident/7.0; rv:11.0) like Gecko";
 
-        internal static async Task Get(string url, string filePath)
+        public static async Task Get(string url, string filePath)
         {
             if (File.Exists(filePath))
                 File.Delete(filePath);

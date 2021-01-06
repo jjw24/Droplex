@@ -12,14 +12,14 @@ namespace Droplex
 {
     public class DropList
     {
-        public List<Configuration> Configurations;
+        private List<Configuration> Configurations;
 
-        public DropList()
+        internal DropList()
         {
             Configurations = TranslateConfigurations();
         }
 
-        public Configuration Get(App app)
+        internal Configuration Get(App app)
         {
             return Configurations.Where(x => x.Id == (int)app).FirstOrDefault();
         }
