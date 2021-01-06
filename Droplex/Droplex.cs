@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,6 +8,10 @@ namespace Droplex
 {
     public static class Droplex
     {
+        /// <summary>
+        /// Downloads and installs the specified app
+        /// </summary>
+        /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
         public static async Task Drop(App app)
         {
             var dropList = new DropList();
