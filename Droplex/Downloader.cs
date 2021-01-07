@@ -11,7 +11,14 @@ namespace Droplex
     public static class Downloader
     {
         private const string UserAgent = @"Mozilla/5.0 (Trident/7.0; rv:11.0) like Gecko";
-
+        
+        /// <summary>
+        /// Downloads the specified app
+        /// </summary>
+        /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
+        /// <exception cref="ArgumentException">Thrown when the download url does not correctly reference a downloadable file </exception>
+        /// <exception cref="DirectoryNotFound">Thrown when unable to manage the deletion/creaction of download directory </exception>
+        /// <exception cref="UnauthorizedAccessException">Thrown when unable to access the download directory location </exception>
         public static async Task Get(string url, string filePath)
         {
             if (File.Exists(filePath))
