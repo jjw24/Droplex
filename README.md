@@ -15,7 +15,9 @@ PM> Install-Package Droplex
 
 ## Usage
 
-```await DroplexPackage.Drop(App.python3_9_1).ConfigureAwait(false);```
+```
+await DroplexPackage.Drop(App.python3_9_1).ConfigureAwait(false);
+```
 
 and you are done. Or,
 
