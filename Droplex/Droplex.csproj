@@ -32,7 +32,7 @@
   <ItemGroup>
     <None Include="Configuration.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
   </ItemGroup>
   
   <ItemGroup>
