@@ -1,4 +1,4 @@
-﻿using Droplex.Models;
+using Droplex.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,7 +39,7 @@ namespace Droplex
         {
             try
             {
-                using var config = new StreamReader("Configuration.yml");
+                using var config = new StreamReader("Droplex.Configuration.yml");
 
                 return config.ReadToEnd();
             }
