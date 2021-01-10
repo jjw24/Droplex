@@ -1,10 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Library</OutputType>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageVersion>1.0.2</PackageVersion>
+    <PackageId>Droplex</PackageId>
+    <Authors>Jeremy Wu</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/jjw24/Droplex</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/jjw24/Droplex</PackageProjectUrl>
+    <PackageDescription>Droplex is a library that enables the application to manage non-interactive installation of dependent tools, programs or services from within the application itself</PackageDescription>
+    <PackageTags>droplex; silent-install; installation; non-interactive; apps</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
