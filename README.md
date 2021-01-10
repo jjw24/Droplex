@@ -32,7 +32,7 @@ Run and forget:
 `_= DroplexPackage.Drop(App.python3_9_1);`
 
 
-## Add your own app to the list
+## Add your own app
 1. Add your app in [Droplex.Configuration.yml](https://github.com/jjw24/Droplex/blob/main/Droplex/Droplex.Configuration.yml) file
 2. Add it also in the [App.cs](https://github.com/jjw24/Droplex/blob/main/Droplex/App.cs) list
 3. Test it with [Droplex.Test.Console](https://github.com/jjw24/Droplex/tree/main/Droplex.Test.Console)
