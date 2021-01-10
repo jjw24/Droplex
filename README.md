@@ -19,10 +19,12 @@ PM> Install-Package Droplex
 
 and you are done. Or,
 
-Run in background:
+Run in background but wait for it to finish:
 ```
 Task pyInstall = DroplexPackage.Drop(App.python3_9_1); 
+
 ...
+
 pyInstall.Wait();
 ```
 
