@@ -7,7 +7,7 @@ Droplex is a library that allows applications to install additional tools, progr
 The goal is to give applications the ability to manage its own non-interactive installation of needed dependencies when dropped in to a vanilla windows environment with an internet connection, without the need to install and use package managers.
 
 ## Installation
-Droplex is available as a NuGet package. You can install it using the NuGet Package Console window:
+Droplex is available as a NuGet [package](https://www.nuget.org/packages/Droplex/). You can [install](http://docs.nuget.org/docs/start-here/installing-nuget) it using the NuGet Package Console window:
 
 ```
 PM> Install-Package Droplex
