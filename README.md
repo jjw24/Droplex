@@ -35,5 +35,5 @@ Run and forget:
 ## Add your own app
 1. Add your app in [Droplex.Configuration.yml](https://github.com/jjw24/Droplex/blob/main/Droplex/Droplex.Configuration.yml) file
 2. Add it also in the [App.cs](https://github.com/jjw24/Droplex/blob/main/Droplex/App.cs) list
-3. Test it with [Droplex.Test.Console](https://github.com/jjw24/Droplex/tree/main/Droplex.Test.Console)
+3. Test it with [Droplex.Test.Console](https://github.com/jjw24/Droplex/tree/main/Droplex.Test.Console) to make sure it installs non-interactively or silently
 4. Submit a PR
