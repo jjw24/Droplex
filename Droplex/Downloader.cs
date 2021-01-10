@@ -13,7 +13,7 @@ namespace Droplex
         private const string UserAgent = @"Mozilla/5.0 (Trident/7.0; rv:11.0) like Gecko";
         
         /// <summary>
-        /// Downloads the specified app
+        /// Downloads the app from specified file url to the specified file path
         /// </summary>
         /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
         /// <exception cref="ArgumentException">Thrown when the download url does not correctly reference a downloadable file </exception>

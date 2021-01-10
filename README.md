@@ -6,13 +6,13 @@ The goal is to give applications the ability to manage its own non-interactive i
 
 ## Usage
 
-`await Droplex.Drop(App.python3_9_1).ConfigureAwait(false);`
+`await DroplexPackage.Drop(App.python3_9_1).ConfigureAwait(false);`
 
 and you are done. Or,
 
 Run in background:
 ```
-Task pyInstall = Droplex.Drop(App.python3_9_1); 
+Task pyInstall = DroplexPackage.Drop(App.python3_9_1); 
 ...
 pyInstall.Wait();
 ```
@@ -20,6 +20,6 @@ pyInstall.Wait();
 Or,
 
 Run and forget:
-`_= Droplex.Drop(App.python3_9_1);`
+`_= DroplexPackage.Drop(App.python3_9_1);`
 
 ### Currently WIP, will publish to NuGet when done

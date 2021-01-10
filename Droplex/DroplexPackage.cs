@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Droplex
 {
-    public static class Droplex
+    public static class DroplexPackage
     {
         /// <summary>
-        /// Downloads and installs the specified app
+        /// Core function to download and install the specified app
         /// </summary>
         /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
         /// <exception cref="ArgumentException">Thrown when the download url does not correctly reference a downloadable file </exception>

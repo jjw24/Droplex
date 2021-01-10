@@ -8,7 +8,7 @@ namespace Droplex
     public static class Installer
     {
         /// <summary>
-        /// Installs the specified app from the specified location using the passed in silent install arguements
+        /// Installs from the specified location using the passed in silent install arguements
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when the install is unable to run correctly </exception>
         /// <exception cref="FileNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>
