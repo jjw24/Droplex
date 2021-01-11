@@ -33,7 +33,9 @@ pyInstall.Wait();
 Or,
 
 Run and forget:
-`_= DroplexPackage.Drop(App.python3_9_1);`
+```
+_= DroplexPackage.Drop(App.python3_9_1);
+```
 
 
 ## Add your own app
