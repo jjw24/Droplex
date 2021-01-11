@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Droplex
@@ -9,11 +8,11 @@ namespace Droplex
     public static class DroplexPackage
     {
         /// <summary>
-        /// Core function to download and install the specified app
+        /// Downloads and installs the specified app
         /// </summary>
         /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
         /// <exception cref="ArgumentException">Thrown when the download url does not correctly reference a downloadable file </exception>
-        /// <exception cref="DirectoryNotFound">Thrown when unable to manage the deletion/creaction of download directory </exception>
+        /// <exception cref="DirectoryNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>
         /// <exception cref="UnauthorizedAccessException">Thrown when unable to access the download directory location </exception>
         /// <exception cref="InvalidOperationException">Thrown when the install is unable to run correctly </exception>
         /// <exception cref="FileNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>

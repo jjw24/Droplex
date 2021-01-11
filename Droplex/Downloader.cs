@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Droplex
@@ -17,7 +15,7 @@ namespace Droplex
         /// </summary>
         /// <exception cref="HttpRequestException">Thrown when access to the download url has errored out </exception>
         /// <exception cref="ArgumentException">Thrown when the download url does not correctly reference a downloadable file </exception>
-        /// <exception cref="DirectoryNotFound">Thrown when unable to manage the deletion/creaction of download directory </exception>
+        /// <exception cref="DirectoryNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>
         /// <exception cref="UnauthorizedAccessException">Thrown when unable to access the download directory location </exception>
         public static async Task Get(string url, string filePath)
         {
