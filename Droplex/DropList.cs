@@ -1,10 +1,8 @@
 using Droplex.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using YamlDotNet.RepresentationModel;
+using System.Reflection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -39,13 +37,12 @@ namespace Droplex
         {
             try
             {
-                using var config = new StreamReader("Droplex.Configuration.yml");
+                using var config = new StreamReader(Directory.GetParent(Assembly.GetExecutingAssembly().Location) + "\\Droplex.Configuration.yml");
 
                 return config.ReadToEnd();
             }
             catch(FileNotFoundException e)
             {
-                //TODO LOG
                 throw e;
             }
         }
