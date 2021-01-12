@@ -11,9 +11,12 @@
 
   <PropertyGroup>
     <PackageVersion>1.0.4</PackageVersion>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <InformationalVersion>1.0.4</InformationalVersion>
     <PackageId>Droplex</PackageId>
     <Authors>Jeremy Wu</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <CopyRight>Jeremy Wu</CopyRight>
     <RepositoryUrl>https://github.com/jjw24/Droplex</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jjw24/Droplex</PackageProjectUrl>
     <PackageDescription>Droplex is a library that enables the application to manage non-interactive installation of dependent tools, programs or services from within the application itself</PackageDescription>
