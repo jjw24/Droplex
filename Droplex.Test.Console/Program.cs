@@ -7,11 +7,19 @@ namespace Droplex.Test
     {
         static void Main(string[] args)
         {
-            Task a = DroplexPackage.Drop(App.python3_9_1);
+            try
+            {
+                Task a = DroplexPackage.Drop(App.python3_9_1);
+                Task b = DroplexPackage.Drop(App.Everything1_3_4_686);
+                Task c = DroplexPackage.Drop(App.Putty_0_74);
 
-            Task b = DroplexPackage.Drop(App.Everything1_3_4_686);
-
-            Task.WaitAll(a, b);
+                Task.WaitAll(a, b, c);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+                Console.ReadKey();
+            }
         }
     }
 }

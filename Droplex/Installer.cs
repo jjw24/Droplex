@@ -16,10 +16,13 @@ namespace Droplex
         /// <exception cref="OperationCanceledException">Thrown when the installation is cancelled or unsuccessful </exception>
         public static async Task Install(string filepath, string installArgs)
         {
+            // For the case where path contains a comma
+            var path = '"' + filepath + '"';
+
             var psi = new ProcessStartInfo
             {
-                UseShellExecute = false,
-                FileName = filepath,
+                UseShellExecute = true,
+                FileName = path,
                 Arguments = installArgs
             };
 
