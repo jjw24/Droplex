@@ -22,13 +22,17 @@ namespace Droplex
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
+            // filePath could be passed in with or without extension
+            var filePathWithoutExtension = 
+                Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileNameWithoutExtension(filePath));
+
             var client = new HttpClient(new SocketsHttpHandler(), false);
             client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
 
             using var response = await client.GetAsync(url).ConfigureAwait(false);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await using var fileStream = new FileStream(filePath, FileMode.CreateNew);
+                await using var fileStream = new FileStream(filePathWithoutExtension, FileMode.CreateNew);
                 await response.Content.CopyToAsync(fileStream).ConfigureAwait(false);
             }
             else
@@ -37,12 +41,12 @@ namespace Droplex
             }
 
             var extension = Path.GetExtension(url);
-            var downloadedFile = $"{filePath}{extension}";
+            var downloadedFile = $"{filePathWithoutExtension}{extension}";
 
             if (File.Exists(downloadedFile))
                 File.Delete(downloadedFile);
 
-            File.Move(filePath, downloadedFile);
+            File.Move(filePathWithoutExtension, downloadedFile);
         }
     }
 }

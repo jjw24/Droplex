@@ -10,9 +10,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>1.0.4</PackageVersion>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
-    <InformationalVersion>1.0.4</InformationalVersion>
+    <PackageVersion>1.0.5</PackageVersion>
+    <AssemblyVersion>1.0.5</AssemblyVersion>
+    <InformationalVersion>1.0.5</InformationalVersion>
     <PackageId>Droplex</PackageId>
     <Authors>Jeremy Wu</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
