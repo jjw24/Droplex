@@ -5,7 +5,7 @@ namespace Droplex.Test
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             try
             {
@@ -13,7 +13,7 @@ namespace Droplex.Test
                 Task b = DroplexPackage.Drop(App.Everything1_3_4_686);
                 Task c = DroplexPackage.Drop(App.Putty_0_74);
 
-                Task.WaitAll(a, b, c);
+                await Task.WhenAll(a, b, c);
             }
             catch(Exception e)
             {
