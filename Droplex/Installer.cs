@@ -25,17 +25,28 @@ namespace Droplex
                 FileName = path,
                 Arguments = installArgs
             };
+            var p = Process.Start(psi);
 
-            await Task.Run(() =>
+            if (!await p.WaitForExitAsync().ConfigureAwait(false))
             {
-                var p = Process.Start(psi);
+                throw new OperationCanceledException();
+            }
 
-                while (!p.HasExited)
-                    Thread.Sleep(1000);
+        }
 
-                if (p.ExitCode != 0)
-                    throw new OperationCanceledException();
-            }).ConfigureAwait(false);
+        private static Task<bool> WaitForExitAsync(this Process process)
+        {
+            var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+
+            process.EnableRaisingEvents = true;
+            process.Exited += ProcessExited;
+
+            return tcs.Task;
+
+            void ProcessExited(object sender, EventArgs e)
+            {
+                tcs.SetResult(process.ExitCode == 0);
+            }
         }
     }
 }
