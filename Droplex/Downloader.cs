@@ -61,7 +61,7 @@ namespace Droplex
             {
                 var cts = new CancellationTokenSource();
                 cts.CancelAfter(2000);
-                await client.GetAsync("https://google.com/generate_204", cts.Token);
+                await client.GetAsync("http://clients3.google.com/generate_204", cts.Token);
 
                 return true;
             }
