@@ -26,6 +26,7 @@ namespace Droplex
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(namingConvention: CamelCaseNamingConvention.Instance)
+                .IgnoreUnmatchedProperties()
                 .Build();
 
             var config = LoadConfigurationFile();

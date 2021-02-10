@@ -10,6 +10,7 @@ namespace Droplex.Models
 		public string Version { get; set; }
 		public int Id { get; set; }
 		public string Url { get; set; }
+		public string Mirror { get; set; }
 		public string Args { get; set; }
 	}
 }

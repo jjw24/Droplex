@@ -30,7 +30,11 @@ namespace Droplex
 
             var filePath = Path.Combine(directoryPath, app.ToString());
 
-            Task downloading = Downloader.Get(item.Url, filePath);
+            Task downloading = await Downloader.CheckGoogleConnection() switch
+            {
+                true => Downloader.Get(item.Url, filePath),
+                false => Downloader.Get(item.Mirror ?? item.Url, filePath)
+            };
 
             var downloadedFilePath = $"{filePath}{Path.GetExtension(item.Url)}";
 

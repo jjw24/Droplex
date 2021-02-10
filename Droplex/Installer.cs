@@ -14,7 +14,7 @@ namespace Droplex
         /// <exception cref="InvalidOperationException">Thrown when the install is unable to run correctly </exception>
         /// <exception cref="FileNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>
         /// <exception cref="OperationCanceledException">Thrown when the installation is cancelled or unsuccessful </exception>
-        public static async Task Install(string filepath, string installArgs)
+        public static Task Install(string filepath, string installArgs)
         {
             // For the case where path contains a comma
             var path = '"' + filepath + '"';
@@ -25,17 +25,32 @@ namespace Droplex
                 FileName = path,
                 Arguments = installArgs
             };
+            var p = Process.Start(psi);
 
-            await Task.Run(() =>
+            return p.WaitForExitAsync();
+
+        }
+
+        private static Task WaitForExitAsync(this Process process)
+        {
+            var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+
+            process.EnableRaisingEvents = true;
+            process.Exited += ProcessExited;
+
+            return tcs.Task;
+
+            void ProcessExited(object sender, EventArgs e)
             {
-                var p = Process.Start(psi);
-
-                while (!p.HasExited)
-                    Thread.Sleep(1000);
-
-                if (p.ExitCode != 0)
-                    throw new OperationCanceledException();
-            }).ConfigureAwait(false);
+                if (process.ExitCode == 0)
+                {
+                    tcs.TrySetResult(true);
+                }
+                else
+                {
+                    tcs.TrySetException(new OperationCanceledException());
+                }
+            }
         }
     }
 }

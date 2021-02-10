@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Droplex
@@ -9,7 +10,14 @@ namespace Droplex
     public static class Downloader
     {
         private const string UserAgent = @"Mozilla/5.0 (Trident/7.0; rv:11.0) like Gecko";
-        
+        private static readonly HttpClient client = new HttpClient(new SocketsHttpHandler(), false);
+
+        static Downloader()
+        {
+            client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
+            client.Timeout = TimeSpan.FromMinutes(5);
+        }
+
         /// <summary>
         /// Downloads the app from specified file url to the specified file path
         /// </summary>
@@ -23,13 +31,11 @@ namespace Droplex
                 File.Delete(filePath);
 
             // filePath could be passed in with or without extension
-            var filePathWithoutExtension = 
+            var filePathWithoutExtension =
                 Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileNameWithoutExtension(filePath));
 
-            var client = new HttpClient(new SocketsHttpHandler(), false);
-            client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
-
-            using var response = await client.GetAsync(url).ConfigureAwait(false);
+            // Use ResponseHeadersRead to allow directly copy to stream
+            using var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 await using var fileStream = new FileStream(filePathWithoutExtension, FileMode.CreateNew);
@@ -47,6 +53,22 @@ namespace Droplex
                 File.Delete(downloadedFile);
 
             File.Move(filePathWithoutExtension, downloadedFile);
+        }
+
+        public static async Task<bool> CheckGoogleConnection()
+        {
+            try
+            {
+                var cts = new CancellationTokenSource();
+                cts.CancelAfter(2000);
+                await client.GetAsync("http://clients3.google.com/generate_204", cts.Token);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
