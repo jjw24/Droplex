@@ -23,3 +23,9 @@
   id: 4
   url: https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.74-installer.msi
   args: -passive
+
+- name: Zabbix
+  version: 5.2.6
+  id: 5
+  url: https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.6/zabbix_agent-5.2.6-windows-amd64-openssl.msi
+  args: -passive SERVER=myserver.com.au
