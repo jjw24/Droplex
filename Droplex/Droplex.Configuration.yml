@@ -28,4 +28,4 @@
   version: 5.2.6
   id: 5
   url: https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.6/zabbix_agent-5.2.6-windows-amd64-openssl.msi
-  args: /passive SERVER=myserver.com.au
+  args: -passive SERVER=myserver.com.au
