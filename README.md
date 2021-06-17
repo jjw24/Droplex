@@ -37,6 +37,13 @@ Run and forget:
 _= DroplexPackage.Drop(App.python3_9_1);
 ```
 
+### Zip Packages
+
+You can specify zip packages such as Python Embeddable as a download and Droplex will get it ready for usage by your application. When doing so need to pass in the extract location:
+```
+await DroplexPackage.Drop(App.python_3_8_9_embeddable, @"C:\temp\python-embeddable").ConfigureAwait(false);
+```
+
 
 ## Add your own app
 1. Add your app in [Droplex.Configuration.yml](https://github.com/jjw24/Droplex/blob/main/Droplex/Droplex.Configuration.yml) file
