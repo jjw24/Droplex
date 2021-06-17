@@ -21,7 +21,7 @@
 - name: Putty
   version: 0.74
   id: 4
-  url: https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.74-installer.msi
+  url: https://the.earth.li/~sgtatham/putty/0.74/w64/putty-64bit-0.74-installer.msi
   args: -passive
 
 - name: Zabbix
@@ -29,3 +29,15 @@
   id: 5
   url: https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.6/zabbix_agent-5.2.6-windows-amd64-openssl.msi
   args: -passive SERVER=myserver.com.au
+
+- name: Python-Embeddable
+  version: 3.8.9
+  id: 6
+  url: https://www.python.org/ftp/python/3.8.9/python-3.8.9-embed-amd64.zip
+  mirror: http://npm.taobao.org/mirrors/python/3.8.9/python-3.8.9-embed-amd64.zip
+
+- name: Putty
+  version: 0.75
+  id: 7
+  url: https://the.earth.li/~sgtatham/putty/0.75/w64/putty-64bit-0.75-installer.msi
+  args: -passive

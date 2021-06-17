@@ -14,6 +14,8 @@ namespace Droplex.Test
                 Task c = DroplexPackage.Drop(App.Putty_0_74);
 
                 await Task.WhenAll(a, b, c);
+
+                await DroplexPackage.Drop(App.python_3_8_9_embeddable, @"C:\temp\python-embeddable").ConfigureAwait(false);
             }
             catch(Exception e)
             {

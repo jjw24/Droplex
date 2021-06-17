@@ -17,7 +17,9 @@ namespace Droplex
         /// <exception cref="InvalidOperationException">Thrown when the install is unable to run correctly </exception>
         /// <exception cref="FileNotFoundException">Thrown when unable to manage the deletion/creaction of download directory </exception>
         /// <exception cref="OperationCanceledException">Thrown when the installation is cancelled or unsuccessful </exception>
-        public static async Task Drop(App app)
+        /// <param name="zipExtractPath"> Path used only for setting where to extract the contents of the zip file to </param >
+        /// <param name="app"> The package specified by App.cs  </param >
+        public static async Task Drop(App app, string zipExtractPath = "")
         {
             var dropList = new DropList();
 
@@ -40,7 +42,15 @@ namespace Droplex
 
             await downloading.ConfigureAwait(false);
 
-            await Installer.Install(downloadedFilePath, item.Args).ConfigureAwait(false);
+            if (!ZipManager.IsZip(downloadedFilePath))
+            {
+                await Installer.Install(downloadedFilePath, item.Args).ConfigureAwait(false);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(zipExtractPath))
+                    ZipManager.Extract(downloadedFilePath, zipExtractPath);
+            }
         }
     }
 }
