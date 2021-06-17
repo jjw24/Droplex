@@ -15,7 +15,7 @@ namespace Droplex
 
         public static void Extract(string sourceZipFilePath, string destinationExtractedPath)
         {
-            ZipFile.ExtractToDirectory(sourceZipFilePath, destinationExtractedPath);
+            ZipFile.ExtractToDirectory(sourceZipFilePath, destinationExtractedPath, true);
         }
     }
 }
