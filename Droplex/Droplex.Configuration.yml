@@ -34,3 +34,4 @@
   version: 3.8.9
   id: 6
   url: https://www.python.org/ftp/python/3.8.9/python-3.8.9-embed-amd64.zip
+  mirror: http://npm.taobao.org/mirrors/python/3.8.9/python-3.8.9-embed-amd64.zip
