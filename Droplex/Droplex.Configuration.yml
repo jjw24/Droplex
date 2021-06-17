@@ -29,3 +29,8 @@
   id: 5
   url: https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.6/zabbix_agent-5.2.6-windows-amd64-openssl.msi
   args: -passive SERVER=myserver.com.au
+
+- name: Python-Embeddable
+  version: 3.8.9
+  id: 6
+  url: https://www.python.org/ftp/python/3.8.9/python-3.8.9-embed-amd64.zip
