@@ -9,11 +9,13 @@ namespace Droplex.Test
         {
             try
             {
-                Task a = DroplexPackage.Drop(App.python3_9_1);
-                Task b = DroplexPackage.Drop(App.Everything1_3_4_686);
-                Task c = DroplexPackage.Drop(App.Putty_0_74);
+                //Task a = DroplexPackage.Drop(App.python3_9_1);
+                //Task b = DroplexPackage.Drop(App.Everything1_3_4_686);
+                //Task c = DroplexPackage.Drop(App.Putty_0_74);
 
-                await Task.WhenAll(a, b, c);
+                //await Task.WhenAll(a, b, c);
+
+                _= DroplexPackage.Drop(App.python_3_8_9_embeddable);
             }
             catch(Exception e)
             {
