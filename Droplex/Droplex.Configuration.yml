@@ -13,9 +13,9 @@
   args: -passive
 
 - name: Everything
-  version: 1.4.1.1009
+  version: 1.3.4.686
   id: 3
-  url: https://www.voidtools.com/Everything-1.4.1.1009.x64-Setup.exe
+  url: https://www.voidtools.com/Everything-1.3.4.686.x64-Setup.exe
   args: /S
 
 - name: Putty
@@ -41,3 +41,9 @@
   id: 7
   url: https://the.earth.li/~sgtatham/putty/0.75/w64/putty-64bit-0.75-installer.msi
   args: -passive
+
+- name: Everything
+  version: 1.4.1.1009
+  id: 8
+  url: https://www.voidtools.com/Everything-1.4.1.1009.x64-Setup.exe
+  args: /S
