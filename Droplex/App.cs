@@ -11,6 +11,8 @@ namespace Droplex
         Everything1_3_4_686 = 3,
         Putty_0_74 = 4,
         Zabbix_5_2_6 = 5,
-        python_3_8_9_embeddable = 6
+        python_3_8_9_embeddable = 6,
+        Putty_0_75 = 7,
+        Everything1_4_1_1009 = 8
     }
 }
