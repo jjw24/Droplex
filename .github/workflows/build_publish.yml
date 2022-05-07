@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     env:
       # ${{ env.PUSH_PACKAGES }} when used could potentially be strings "false" or "true"
-      PUSH_PACKAGES: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      PUSH_PACKAGES: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
     - uses: actions/checkout@v2
@@ -31,6 +31,14 @@ jobs:
         name: Droplex
         path: Output/Release/
     
-    - name: Publish NuGet Package
+    - name: Publish To NuGet 
       if: ${{ github.ref == 'refs/heads/main' }}
       run: nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
+    
+    - name: Publish To GitHub Releases
+      if: ${{ env.PUSH_PACKAGES }} #${{ github.ref == 'refs/heads/main' }}
+      run: echo blah
+      #uses: softprops/action-gh-release@v1
+      #with:
+        #files: "WindowWalker*"
+        #tag_name: "v${{steps.version.outputs.prop}}"
