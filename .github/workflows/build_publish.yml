@@ -37,7 +37,10 @@ jobs:
       run: nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
     
     - name: Get Version
-      run: $env:VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
+      run: |
+        $env:VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
+        echo $env:VERSION
+        [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
     
     - name: Publish To GitHub Releases
       if: env.PUSH_PACKAGES #${{ github.ref == 'refs/heads/main' }}
