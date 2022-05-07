@@ -43,7 +43,6 @@ jobs:
     
     - name: Publish To GitHub Releases
       #if: ${{ github.ref == 'refs/heads/main' }}
-      if: ${{ env.PUSH_PACKAGES == 'true' }}
       run: echo $env:VERSION
       # uses: softprops/action-gh-release@v1
       # env:
