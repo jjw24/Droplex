@@ -10,6 +10,7 @@ jobs:
     env:
       # ${{ env.PUSH_PACKAGES }} when used could potentially be strings "false" or "true"
       PUSH_PACKAGES: ${{ github.ref == 'refs/heads/main' }}
+      VERSION: ""
 
     steps:
     - uses: actions/checkout@v2
@@ -35,9 +36,12 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       run: nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
     
+    - name: Get Version
+      run: $VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
+    
     - name: Publish To GitHub Releases
       if: $PUSH_PACKAGES #${{ github.ref == 'refs/heads/main' }}
-      run: echo "v${{ [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion }}"
+      run: echo $VERSION
       #uses: softprops/action-gh-release@v1
       #with:
         #files: "WindowWalker*"
