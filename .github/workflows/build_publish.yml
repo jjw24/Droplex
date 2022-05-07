@@ -32,5 +32,5 @@ jobs:
         path: Output/Release/
     
     - name: Publish NuGet Package
-      if: ${{ env.PUSH_PACKAGES }} == true
+      if: ${{ github.ref == 'refs/heads/main' }}
       run: echo publishing #nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
