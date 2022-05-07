@@ -36,16 +36,18 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       run: nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
     
-    - name: Get Version
-      run: |
-        $env:VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
-        echo $env:VERSION
-        [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
+    # - name: Get Version
+      # run: |
+        # $env:VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
     
     - name: Publish To GitHub Releases
-      if: env.PUSH_PACKAGES #${{ github.ref == 'refs/heads/main' }}
-      run: echo $([System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion)
-      #uses: softprops/action-gh-release@v1
-      #with:
-        #files: "WindowWalker*"
-        #tag_name: "v${{steps.version.outputs.prop}}"
+      env:
+        VERSION: ${{ [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion }}
+      run: echo $env.VERSION
+      # if: ${{ github.ref == 'refs/heads/main' }}
+      # uses: softprops/action-gh-release@v1
+      # env:
+        # VERSION: ${{ [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion }}
+      # with:
+        # files: "Output\\Release\\*.nupkg"
+        # tag_name: "v$env:VERSION"
