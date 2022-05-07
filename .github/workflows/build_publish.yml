@@ -33,4 +33,4 @@ jobs:
     
     - name: Publish NuGet Package
       if: ${{ env.PUSH_PACKAGES }} == "true"
-      run: echo publishing #dotnet nuget push nupkgs\*.nupkg
+      run: ${{ env.PUSH_PACKAGES }} #echo publishing #dotnet nuget push nupkgs\*.nupkg
