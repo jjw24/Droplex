@@ -2,14 +2,15 @@ name: Build & Publish
 
 on:
   push:
-    paths-ignore: 
-        - .github/workflows/*
+    #paths-ignore: 
+        #- .github/workflows/*
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
     env:
+      # ${{ env.PUSH_PACKAGES }} when used could potentially be strings "false" or "true"
       PUSH_PACKAGES: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
     steps:
