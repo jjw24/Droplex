@@ -44,7 +44,7 @@ jobs:
     
     - name: Publish To GitHub Releases
       if: env.PUSH_PACKAGES #${{ github.ref == 'refs/heads/main' }}
-      run: echo $VERSION
+      run: echo $([System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion)
       #uses: softprops/action-gh-release@v1
       #with:
         #files: "WindowWalker*"
