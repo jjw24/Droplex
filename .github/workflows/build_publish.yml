@@ -41,7 +41,7 @@ jobs:
         $env:VERSION = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion
     
     - name: Publish To GitHub Releases
-      run: echo $env.VERSION
+      run: echo $env:VERSION
       # if: ${{ github.ref == 'refs/heads/main' }}
       # uses: softprops/action-gh-release@v1
       # env:
