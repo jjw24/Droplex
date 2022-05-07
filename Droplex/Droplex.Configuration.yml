@@ -2,14 +2,14 @@
   version: 3.9.1  
   id: 1  
   url: https://www.python.org/ftp/python/3.9.1/python-3.9.1-amd64.exe
-  mirror: http://npm.taobao.org/mirrors/python/3.9.1/python-3.9.1-amd64.exe
+  mirror: http://npmmirror.com/mirrors/python/3.9.1/python-3.9.1-amd64.exe
   args: -passive
 
 - name: Python 
   version: 3.8.7
   id: 2
   url: https://www.python.org/ftp/python/3.8.7/python-3.8.7-amd64.exe
-  mirror: http://npm.taobao.org/mirrors/python/3.8.7/python-3.8.7-amd64.exe
+  mirror: http://npmmirror.com/mirrors/python/3.8.7/python-3.8.7-amd64.exe
   args: -passive
 
 - name: Everything
@@ -34,7 +34,7 @@
   version: 3.8.9
   id: 6
   url: https://www.python.org/ftp/python/3.8.9/python-3.8.9-embed-amd64.zip
-  mirror: http://npm.taobao.org/mirrors/python/3.8.9/python-3.8.9-embed-amd64.zip
+  mirror: http://npmmirror.com/mirrors/python/3.8.9/python-3.8.9-embed-amd64.zip
 
 - name: Putty
   version: 0.75
