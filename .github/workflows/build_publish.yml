@@ -2,12 +2,10 @@ name: Build & Publish
 
 on:
   push:
-    #paths-ignore: 
-        #- .github/workflows/*
   workflow_dispatch:
 
 jobs:
-  build:
+  workflow:
     runs-on: windows-latest
     env:
       # ${{ env.PUSH_PACKAGES }} when used could potentially be strings "false" or "true"
@@ -34,5 +32,5 @@ jobs:
         path: Output/Release/
     
     - name: Publish NuGet Package
-      if: ${{ env.PUSH_PACKAGES }}
+      if: ${{ env.PUSH_PACKAGES }} == "true"
       run: echo publishing #dotnet nuget push nupkgs\*.nupkg
