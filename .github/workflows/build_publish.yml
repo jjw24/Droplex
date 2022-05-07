@@ -36,7 +36,7 @@ jobs:
       run: nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
     
     - name: Publish To GitHub Releases
-      if: ${{ env.PUSH_PACKAGES }} #${{ github.ref == 'refs/heads/main' }}
+      if: $PUSH_PACKAGES #${{ github.ref == 'refs/heads/main' }}
       run: echo "v${{ [System.Diagnostics.FileVersionInfo]::GetVersionInfo("Output\Release\Droplex.dll").ProductVersion }}"
       #uses: softprops/action-gh-release@v1
       #with:
