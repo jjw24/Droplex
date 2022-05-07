@@ -32,5 +32,5 @@ jobs:
         path: Output/Release/
     
     - name: Publish NuGet Package
-      if: ${{ env.PUSH_PACKAGES }} == "true"
-      run: ${{ env.PUSH_PACKAGES }} #echo publishing #dotnet nuget push nupkgs\*.nupkg
+      if: ${{ env.PUSH_PACKAGES }} == true
+      run: echo publishing #nuget push Output\Release\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.PUBLISH}}
