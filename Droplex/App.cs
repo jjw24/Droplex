@@ -14,6 +14,7 @@ namespace Droplex
         python_3_8_9_embeddable = 6,
         Putty_0_75 = 7,
         Everything1_4_1_1009 = 8,
-        nodejs_16_18_0 = 9
+        nodejs_16_18_0 = 9,
+        python_3_10_8_embeddable = 10
     }
 }
