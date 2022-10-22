@@ -47,3 +47,9 @@
   id: 8
   url: https://www.voidtools.com/Everything-1.4.1.1009.x64-Setup.exe
   args: /S
+
+- name: Node.js
+  version: 16.18.0
+  id: 9
+  url: https://nodejs.org/dist/v16.18.0/node-v16.18.0-win-x64.zip
+  mirror: https://registry.npmmirror.com/-/binary/node/latest-v16.x/node-v16.18.0-win-x64.zip
