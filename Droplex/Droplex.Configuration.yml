@@ -59,3 +59,9 @@
   id: 10
   url: https://www.python.org/ftp/python/3.10.8/python-3.10.8-embed-amd64.zip
   mirror: http://npmmirror.com/mirrors/python/3.10.8/python-3.10.8-embed-amd64.zip
+
+- name: Python-Embeddable
+  version: 3.11.4
+  id: 11
+  url: https://www.python.org/ftp/python/3.11.4/python-3.11.4-embed-amd64.zip
+  mirror: http://npmmirror.com/mirrors/python/3.11.4/python-3.11.4-embed-amd64.zip
