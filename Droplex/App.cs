@@ -16,6 +16,7 @@ namespace Droplex
         Everything1_4_1_1009 = 8,
         nodejs_16_18_0 = 9,
         python_3_10_8_embeddable = 10,
-        python_3_11_4_embeddable = 11
+        python_3_11_4_embeddable = 11,
+        python_3_13_15_embeddable = 12
     }
 }

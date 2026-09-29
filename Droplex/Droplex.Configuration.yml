@@ -65,3 +65,8 @@
   id: 11
   url: https://www.python.org/ftp/python/3.11.4/python-3.11.4-embed-amd64.zip
   mirror: http://npmmirror.com/mirrors/python/3.11.4/python-3.11.4-embed-amd64.zip
+
+- name: Python-Embeddable
+  version: 3.13.15
+  id: 12
+  url: https://www.python.org/ftp/python/3.13.15/python-3.13.15-embed-amd64.zip
