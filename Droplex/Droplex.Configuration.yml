@@ -65,3 +65,13 @@
   id: 11
   url: https://www.python.org/ftp/python/3.11.4/python-3.11.4-embed-amd64.zip
   mirror: http://npmmirror.com/mirrors/python/3.11.4/python-3.11.4-embed-amd64.zip
+
+- name: Node.js
+  version: 26.10.0
+  id: 12
+  url: https://nodejs.org/dist/v26.10.0/node-v26.10.0-win-x64.zip
+
+- name: Python-Embeddable
+  version: 3.14.7
+  id: 13
+  url: https://www.python.org/ftp/python/3.14.7/python-3.14.7-embed-amd64.zip
